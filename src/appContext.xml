@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:sport.properties"/>
+    
+<!-- define the bean for dependency first -->
+<bean id="myFortuneService" 
+class="com.example.springdemo.RandomFortuneService"></bean>
+    
+    <!-- set up dependency injeciton  -->
+<bean id="myCoach"
+class="com.example.springdemo.TrackCoach">
+    <!-- add the dependency using ref property and id of dependency object.  -->
+<constructor-arg ref="myFortuneService"/>
+</bean>
+
+<bean id="myCricketCoach" 
+class="com.example.springdemo.CricketCoach">
+<!-- <property name="emailAddress" value="cricketCoach@gmail.com"></property>
+<property name="team" value="Team A"></property> -->
+
+<property name="emailAddress" value="${email}"></property>
+<property name="team" value="${team}"></property>
+<property name="fortuneService" ref="myFortuneService"></property>
+</bean>
+
+
+
+
+</beans>
