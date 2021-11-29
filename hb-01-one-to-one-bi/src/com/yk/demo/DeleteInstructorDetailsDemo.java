@@ -29,7 +29,10 @@ public class DeleteInstructorDetailsDemo {
 			System.out.println("tempInstructorDetail"+ tempInstructorDetail);
 			System.out.println("the associated Instructor "+tempInstructorDetail.getInstructor());
 			System.out.println("Deleting the object");
+			//now to remove the associated Instructor form InstructorDetail set the object reference to null
 			tempInstructorDetail.getInstructor().setInstructorDetail(null);
+			//IF NOT DONE Hibernate will throw error saying the object you are trying to delete
+			// will be re-saved as it has a dependency.(i.e. InstructorDetail still has id(FK) pointing to Instructor)
 			
 			session.delete(tempInstructorDetail);
 			System.out.println("Done");
