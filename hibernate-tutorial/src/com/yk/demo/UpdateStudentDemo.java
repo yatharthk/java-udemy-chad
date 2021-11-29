@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.yk.jdbc.entity.Student;
 
+
 public class UpdateStudentDemo {
 
 	public static void main(String[] args) {
@@ -37,6 +38,7 @@ public class UpdateStudentDemo {
 		//statement is updating it in memory 
 		myStudent.setFirstName("Scooby");
 		myStudent.setLastName("Doo");
+		myStudent.setDateOfBirth(DateUtils.parseDate("04/02/1993"));
 		
 		//commit  the transaction
 		session.getTransaction().commit();
@@ -57,8 +59,9 @@ public class UpdateStudentDemo {
 		
 		
 		
-	}
-	finally {
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
 //		session.flush();
 //		session.close();
 		factory.close();

@@ -6,6 +6,9 @@ import org.hibernate.cfg.Configuration;
 
 import com.yk.jdbc.entity.Student;
 
+import java.text.ParseException;
+import java.util.Date;
+
 public class ReadStudentDemo {
 
 	public static void main(String[] args) {
@@ -21,8 +24,9 @@ public class ReadStudentDemo {
 	try {
 		
 		//create a student object
+		Date date= DateUtils.parseDate("24/05/1998");
 		System.out.println("Creating  new student object");
-		Student theStudent=new Student("yatharth","k","yatharthk@gmail.com");
+		Student theStudent=new Student("m","k",date,"mk@gmail.com");
 		
 		//start the transaction
 		session.beginTransaction();
@@ -48,8 +52,9 @@ public class ReadStudentDemo {
 		System.out.println("Done");
 		
 		
-	}
-	finally {
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
 		session.flush();
 		session.close();
 		factory.close();

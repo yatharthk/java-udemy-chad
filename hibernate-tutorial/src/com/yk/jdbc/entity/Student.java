@@ -1,13 +1,14 @@
 package com.yk.jdbc.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import org.hibernate.annotations.ValueGenerationType;
+import com.yk.demo.DateUtils;
+
+import java.util.Date;
+
+//Table script for adding the field
+//Alter table `hb_student_tracker`.`student`
+//ADD column `date_of_birth` DATETIME NULL AFTER `last_name`;
 
 @Entity
 @Table(name = "student")
@@ -22,16 +23,29 @@ public class Student {
 	
 	@Column(name = "last_name")
 	private String lastName;
+
+	@Column(name = "date_of_birth")
+	@Temporal(TemporalType.DATE)
+	private Date dateOfBirth;
 	
 	@Column(name = "email")
 	private String email;
-	
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	public Student() {}
 
-	public Student(String firstName, String lastName, String email) {
+	public Student(String firstName, String lastName, Date dateOfBirth, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.dateOfBirth=dateOfBirth;
 		this.email = email;
 	}
 
@@ -65,11 +79,12 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Student{" +
+				"id=" + id +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", dateOfBirth='" + DateUtils.formatDate(dateOfBirth) + '\'' +
+				", email='" + email + '\'' +
+				'}';
 	}
-	
-	
-	
-	
-
 }
