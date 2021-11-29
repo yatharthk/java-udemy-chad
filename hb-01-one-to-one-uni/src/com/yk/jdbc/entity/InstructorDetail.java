@@ -30,7 +30,6 @@ public class InstructorDetail {
 	
 	//create constructors
 	public InstructorDetail() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
