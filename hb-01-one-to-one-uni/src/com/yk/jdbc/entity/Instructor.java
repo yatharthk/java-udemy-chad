@@ -46,7 +46,6 @@ public class Instructor {
 
 
 	public Instructor() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
