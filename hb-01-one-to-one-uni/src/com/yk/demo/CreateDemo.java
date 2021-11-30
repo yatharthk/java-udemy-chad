@@ -6,7 +6,6 @@ import org.hibernate.cfg.Configuration;
 
 import com.yk.jdbc.entity.Instructor;
 import com.yk.jdbc.entity.InstructorDetail;
-import com.yk.jdbc.entity.Student;
 
 public class CreateDemo {
 

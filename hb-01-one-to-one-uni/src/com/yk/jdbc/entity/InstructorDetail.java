@@ -30,12 +30,10 @@ public class InstructorDetail {
 	
 	//create constructors
 	public InstructorDetail() {
-		// TODO Auto-generated constructor stub
 	}
 
 
 	public InstructorDetail(String youtubeChannel, String hobby) {
-		super();
 		this.youtubeChannel = youtubeChannel;
 		this.hobby = hobby;
 	}

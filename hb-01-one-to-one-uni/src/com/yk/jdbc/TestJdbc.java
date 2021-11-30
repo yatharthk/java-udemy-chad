@@ -9,13 +9,13 @@ public class TestJdbc {
 		// TODO Auto-generated method stub
 
 		String jdbcUrl="jdbc:mysql://localhost:3306/hb-01-one-to-one-uni?useSSL=false&serverTimeZon=IST";
-		String user="root";
-		String passsword="";
+		String user="hbstudent";
+		String passsword="hbstudent";
 		try 
 		{
-			System.out.println("Connecting to database"+jdbcUrl);
+			System.out.println("Connecting to database "+jdbcUrl);
 			Connection myCon=DriverManager.getConnection(jdbcUrl,user,passsword);
-			System.out.println("Connection successfull!!");
+			System.out.println("Connection successful!!");
 		}
 		catch(Exception e) {
 			e.printStackTrace();

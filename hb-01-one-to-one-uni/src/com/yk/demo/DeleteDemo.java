@@ -22,7 +22,7 @@ public class DeleteDemo {
 	
 	try {
 		
-		int theId=1;
+		int theId=3;
 		//start the session
 		session.beginTransaction();
 		
@@ -31,7 +31,7 @@ public class DeleteDemo {
 		
 		System.out.println("Deleting the instructor"+tempInstructor);
 		
-		//delete the instructor :Note: this will also delete the instructor details becasue of cascade type
+		//delete the instructor :Note: this will also delete the instructor details because of cascade type
 		
 		session.delete(tempInstructor);
 		
