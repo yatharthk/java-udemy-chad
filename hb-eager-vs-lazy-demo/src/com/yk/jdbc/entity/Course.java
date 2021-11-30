@@ -1,4 +1,4 @@
-package com.yk.jdbc.entity;
+package  com.yk.jdbc.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
