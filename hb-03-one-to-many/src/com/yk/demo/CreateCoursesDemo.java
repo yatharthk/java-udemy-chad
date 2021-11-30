@@ -1,12 +1,11 @@
 package com.yk.demo;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
 import com.yk.jdbc.entity.Course;
 import com.yk.jdbc.entity.Instructor;
 import com.yk.jdbc.entity.InstructorDetail;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class CreateCoursesDemo {
 	
@@ -16,7 +15,8 @@ public class CreateCoursesDemo {
 		SessionFactory factory = new Configuration().configure("resources/hibernate.cfg.xml")
 				.addAnnotatedClass(Instructor.class)
 				.addAnnotatedClass(InstructorDetail.class)
-				.addAnnotatedClass(Course.class).buildSessionFactory();
+				.addAnnotatedClass(Course.class)
+				.buildSessionFactory();
 		
 		Session session =factory.getCurrentSession();
 

@@ -1,12 +1,12 @@
 package com.yk.demo;
 
+import com.yk.jdbc.entity.Instructor;
+import com.yk.jdbc.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.yk.jdbc.entity.Course;
-import com.yk.jdbc.entity.Instructor;
-import com.yk.jdbc.entity.InstructorDetail;
 
 public class DeleteCoursesDemo {
 
@@ -23,16 +23,16 @@ public class DeleteCoursesDemo {
 		try {
 			session.beginTransaction();
 			
-			int theId=1;
+			int theId=10;
 			
 			//get the instructor from db
-			Instructor instructor= session.get(Instructor.class, theId);
+			Course tempCourse= session.get(Course.class, theId);
 			
 			//print the instructor
-			System.out.println("Instructor "+instructor);
-			
-			//get courses for the instructor
-			System.out.println("courses:"+instructor.getCourses());
+			System.out.println("Instructor "+tempCourse);
+
+
+			session.delete(tempCourse);
 			
 			//commit the  transaction
 			session.getTransaction().commit();

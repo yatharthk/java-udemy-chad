@@ -1,11 +1,10 @@
 package com.yk.demo;
 
+import com.yk.jdbc.entity.Instructor;
+import com.yk.jdbc.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import com.yk.jdbc.entity.Instructor;
-import com.yk.jdbc.entity.InstructorDetail;
 
 public class DeleteDemo {
 
