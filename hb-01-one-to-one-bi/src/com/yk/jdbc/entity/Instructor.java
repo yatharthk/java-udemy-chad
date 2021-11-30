@@ -31,7 +31,7 @@ public class Instructor {
 	
 	
 	@Column(name="first_name")
-	private String firtName;
+	private String firstName;
 	
 	@Column(name = "last_name")
 	private String lastName;
@@ -45,27 +45,23 @@ public class Instructor {
 	private InstructorDetail instructorDetail;
 
 
-	public Instructor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Instructor() {}
 
 
-	public Instructor(String firtName, String lastName, String email) {
-		super();
-		this.firtName = firtName;
+	public Instructor(String firstName, String lastName, String email) {
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 	}
 
 
-	public String getFirtName() {
-		return firtName;
+	public String getFirstName() {
+		return firstName;
 	}
 
 
-	public void setFirtName(String firtName) {
-		this.firtName = firtName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 
@@ -106,7 +102,7 @@ public class Instructor {
 
 	@Override
 	public String toString() {
-		return "Instructor [id=" + id + ", firtName=" + firtName + ", lastName=" + lastName + ", email=" + email
+		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", instructorDetail=" + instructorDetail + "]";
 	}	
 	

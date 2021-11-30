@@ -27,11 +27,13 @@ public class CreateDemo {
 		tempInstructor.setInstructorDetail(instructorDetail);
 		
 		
-		int theId=1;
+
 		
 		
 		//start the session
 		session.beginTransaction();
+		int theId=9;
+
 		session.save(tempInstructor);
 
 		//get the instructorDetail Object
@@ -42,7 +44,7 @@ public class CreateDemo {
 		
 		//printing the instructor object as there is a mapping between instructor detail to instructor set-up
 //		using mapped by and cascade all is also set so all the operations we do in instructor_detail will pass in/ cascade to instructor object
-		System.out.println("Printing associated instructor"+tempInstructorDetail.getInstructor());
+		System.out.println("Printing associated instructor"+ tempInstructorDetail.getInstructor());
 		
 		//commit the transaction
 		session.getTransaction().commit();

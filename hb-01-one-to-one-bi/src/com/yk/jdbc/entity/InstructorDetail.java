@@ -34,14 +34,10 @@ public class InstructorDetail {
 	//annotate the fields with db column names
 	
 	//create constructors
-	public InstructorDetail() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public InstructorDetail() {}
 
 
 	public InstructorDetail(String youtubeChannel, String hobby) {
-		super();
 		this.youtubeChannel = youtubeChannel;
 		this.hobby = hobby;
 	}

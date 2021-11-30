@@ -23,7 +23,7 @@ public class DeleteInstructorDetailsDemo {
 		try {
 			session.beginTransaction();
 			
-			int theId=4;
+			int theId=9;
 			InstructorDetail tempInstructorDetail=session.get(InstructorDetail.class,theId);
 		
 			System.out.println("tempInstructorDetail"+ tempInstructorDetail);
