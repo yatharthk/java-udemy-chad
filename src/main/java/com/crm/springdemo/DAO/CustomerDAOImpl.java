@@ -19,12 +19,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	@Transactional
 	public List<Customer> getAllCustomers() {
 		// get the current hibernate session
 		Session session = sessionFactory.getCurrentSession();
+		
 		//create and execcute a query
-		Query<Customer> query= session.createQuery("From Customer",Customer.class);
+		Query<Customer> query= session.createQuery("From Customer order by lastName",Customer.class);
 
 		//get the query results
 		List<Customer> customers= query.getResultList();
@@ -35,26 +35,49 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void saveCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		// get the current  hibernate session object
+		Session session= sessionFactory.getCurrentSession();
+		session.saveOrUpdate(customer);
+		
 
+	}
+
+
+	@Override
+	public void deleteCustomer(int customerId) {
+		// TODO Auto-generated method stub
+		Session session= sessionFactory.getCurrentSession();
+//		Customer customer=session.get(Customer.class,customerId);
+//		session.delete(customer);
+		
+		Query query= session.createQuery("delete from Customer where id=:customerId");
+		query.setParameter("customerId", customerId);
+		
+		query.executeUpdate();
+		
 	}
 
 	@Override
-	public void updateCustomer(Customer customer) {
+	public Customer getCustomer(int customerId) {
 		// TODO Auto-generated method stub
-
+		Session session= sessionFactory.getCurrentSession();
+		Customer customer = session.get(Customer.class, customerId);
+		return customer;
 	}
 
 	@Override
-	public int deleteCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<Customer> searchCustomer(String searchTerm) {
+		Query<Customer> query=null;
+		Session session = sessionFactory.getCurrentSession();
+		if(null!=searchTerm && searchTerm.trim().length()>0  ) {
+		query= session.createQuery("From Customer where lower(firstName) like :searchTerm or lower(lastName) like :searchTerm",Customer.class);
+		query.setParameter("searchTerm", "%"+searchTerm.toLowerCase()+"%");
 	}
-
-	@Override
-	public Customer getCustomer(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		else {
+			query= session.createQuery("From Customer",Customer.class);
+		}
+		List<Customer> customerList = query.getResultList();
+		
+		return customerList;
 	}
-
 }
