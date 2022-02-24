@@ -1,6 +1,7 @@
 package com.example.springaopdemo;
 
 import com.example.springaopdemo.DAO.AccountDAO;
+import com.example.springaopdemo.DAO.MembershipDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +16,21 @@ public class SpringAopDemoApplication {
 
     AccountDAO accountDAO= context.getBean("accountDAO",AccountDAO.class);
 
-    accountDAO.addAccount();
-        System.out.println("Executing again \n \n \n");
-        accountDAO.addAccount();
+    //get bean for membership dao
+        MembershipDAO membershipDAO = context.getBean("membershipDAO",MembershipDAO.class);
+
+        Account account = new Account();
+    accountDAO.addAccount(account,true);
+        System.out.println("Executing membership \n \n \n");
+        membershipDAO.addAccount();
+        System.out.println("Executing accountDao again \n \n \n");
+        accountDAO.addAccount(account,true);
+
+        System.out.println("Calling the extra added methods ");
+
+        accountDAO.doWork();
+
+        membershipDAO.goToSleep();
     context.close();
 }
 
