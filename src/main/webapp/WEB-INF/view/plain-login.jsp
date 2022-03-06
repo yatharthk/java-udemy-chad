@@ -5,11 +5,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<style ></style>
+	<style> .flagged{color:red;} h3:{color:blue;} </style>
 <head>
 <meta charset="ISO-8859-1">
 <title>Custom Login Page</title>
-<link rel="stylesheet" type="text/css" href="css/demo.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/demo.css"> -->
 </head>
 <body>
 	<h3>My Custom Login Page</h3>
