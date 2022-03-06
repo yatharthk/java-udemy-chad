@@ -46,6 +46,11 @@
 									<div class="aleet alert-danger col-xs-offfset-1 col-xs-10">
 										Sorry! You entered Invalid user-name/password</div>
 								</c:if>
+								
+								<c:if  test="${param.logout != null}">
+								<div class="alert alert-success col-xs-offset-1 col-xs-10">
+									You have been logged out</div>
+								</c:if>
 							</div>
 						</div>
 
