@@ -61,6 +61,14 @@
 		</dependency>
 		
 		
+		<!-- Support for spring security tag libs -->
+		<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>${springsecurity.version}</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
