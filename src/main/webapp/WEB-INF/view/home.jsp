@@ -21,6 +21,17 @@
 User: <security:authentication property="principal.username"/>
 Role(s): <security:authentication property="principal.authorities"/>
 
+<hr>
+<!--Ad link to point to /leaders.. tis is for managers  -->
+<a href="${pageContext.request.contextPath}/leaders ">LeaderShip Meeting</a>(Only for leaders)
+
+</hr>
+
+<hr>
+<!--Ad link to point to /leaders.. tis is for managers  -->
+<a href="${pageContext.request.contextPath}/systems ">IT Systems Meeting</a> (Only for Admin peeps)
+</hr>
+
 <form:form action="${pageContext.request.contextPath}/logout" method="POST">
 	<input type="submit" value="Logout">
 </form:form> 
