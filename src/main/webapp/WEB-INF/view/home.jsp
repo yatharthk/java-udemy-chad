@@ -21,6 +21,19 @@
 User: <security:authentication property="principal.username"/>
 Role(s): <security:authentication property="principal.authorities"/>
 
+<hr>
+
+<security:authorize access="hasRole('MANAGER')">
+<!--Ad link to point to /leaders.. tis is for managers  -->
+<a href="${pageContext.request.contextPath}/leaders ">LeaderShip Meeting</a>(Only for leaders)
+</security:authorize>
+
+
+<security:authorize access="hasRole('ADMIN')">
+<!--Ad link to point to /leaders.. tis is for managers  -->
+<a href="${pageContext.request.contextPath}/systems ">IT Systems Meeting</a> (Only for Admin peeps)
+</security:authorize>
+
 <form:form action="${pageContext.request.contextPath}/logout" method="POST">
 	<input type="submit" value="Logout">
 </form:form> 
