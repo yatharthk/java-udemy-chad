@@ -21,16 +21,17 @@
 User: <security:authentication property="principal.username"/>
 Role(s): <security:authentication property="principal.authorities"/>
 
-<hr>
-<!--Ad link to point to /leaders.. tis is for managers  -->
+<security:authorize access="hasRole('MANAGER')">
+
+<!--Ad link to point to /leaders.. this is for managers  -->
 <a href="${pageContext.request.contextPath}/leaders ">LeaderShip Meeting</a>(Only for leaders)
+</security:authorize>
 
-</hr>
-
-<hr>
-<!--Ad link to point to /leaders.. tis is for managers  -->
+<security:authorize access="hasRole('ADMIN')">
+<!--Ad link to point to /systems.. tHis is for ADMIN  -->
 <a href="${pageContext.request.contextPath}/systems ">IT Systems Meeting</a> (Only for Admin peeps)
-</hr>
+</security:authorize>
+<hr>
 
 <form:form action="${pageContext.request.contextPath}/logout" method="POST">
 	<input type="submit" value="Logout">
