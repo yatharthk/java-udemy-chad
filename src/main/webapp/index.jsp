@@ -1,5 +1,7 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Spring rest crm app</h2>
+
+<a href="${pageContext.request.contextPath}/api/customers">Get All customers</a>
 </body>
 </html>
