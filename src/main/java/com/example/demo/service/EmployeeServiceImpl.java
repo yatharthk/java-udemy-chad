@@ -14,6 +14,7 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
+    @Qualifier("employeeJpaDaoImpl")
     private EmployeeDAO employeeDAO;
 
     @Override
