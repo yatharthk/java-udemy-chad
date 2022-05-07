@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.EmployeeDAO;
+import com.example.demo.dao.EmployeeRepository;
 import com.example.demo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,35 +10,42 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+//    @Autowired
+//    @Qualifier("employeeJpaDaoImpl")
+//    private EmployeeDAO employeeDAO;
+
     @Autowired
-    @Qualifier("employeeJpaDaoImpl")
-    private EmployeeDAO employeeDAO;
+    private EmployeeRepository employeeRepository;
 
     @Override
     public List<Employee> getAllEmployees() {
-        return employeeDAO.findAll();
+        return employeeRepository.findAll();
     }
 
     @Override
     public Employee findById(int theId) {
-        return employeeDAO.findById(theId);
+        Optional<Employee> result = employeeRepository.findById(theId);
+        Employee e = null;
+        if(result.isPresent()) {
+            return result.get();
+        }
+        throw new RuntimeException("Could not find the employee with id:"+theId);
     }
 
     @Override
-    @Transactional
-    @Modifying
     public void save(Employee e) {
-        employeeDAO.save(e);
+        employeeRepository.save(e);
     }
 
     @Override
-    @Transactional
+    
     @Modifying
     public void deleteEmployee(int theId) {
-        employeeDAO.deleteById(theId);
+        employeeRepository.deleteById(theId);
     }
 }
